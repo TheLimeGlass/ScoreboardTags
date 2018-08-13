@@ -10,7 +10,7 @@ import me.limeglass.scoreboardtags.utils.annotations.Patterns;
 
 @Name("ScoreboardTags - has tag")
 @Description("Check if the entity has any scoreboard tags.")
-@Patterns({"%entity% (1¦has|2¦does(n't| not) have) ([a[ny]]|%-strings%) scoreboard tag[s]", "%entity% (1¦has|2¦does(n't| not) have) scoreboard tag[s] %strings%"})
+@Patterns({"%entity% (1¦(does have|has)|2¦does(n't| not) have) ([a[ny]]|%-strings%) scoreboard tag[s]", "%entity% (1¦(does have|has)|2¦does(n't| not) have) scoreboard tag[s] %strings%"})
 public class CondHasScoreboardTag extends ScoreboardTagsCondition {
 
 	public boolean check(Event event) {
@@ -18,9 +18,15 @@ public class CondHasScoreboardTag extends ScoreboardTagsCondition {
 		Entity entity = expressions.getSingle(event, Entity.class);
 		if (areNull(event)) return entity.getScoreboardTags().isEmpty() ? !isNegated() : isNegated();
 		for (String tag : expressions.getAll(event, String.class)) {
-			if (!entity.getScoreboardTags().contains(tag) && isNegated()) return !isNegated();
+			if (isNegated()) { //does
+				if (!entity.getScoreboardTags().contains(tag)) {
+					return false;
+				}
+			} else if (entity.getScoreboardTags().contains(tag)) {
+				return false;
+			}
 		}
-		return isNegated();
+		return !isNegated();
 	}
 
 }
