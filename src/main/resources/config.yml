@@ -1,4 +1,4 @@
-# Skore - A Skript addon dedicated to perfecting scoreboards.
+# ScoreboardTags - A Skript addon dedicated to scoreboard tags.
 
 # The version is to help the addon determine which version this config is. Please don't modify this value.
 version: "1.0.0"
@@ -21,10 +21,3 @@ DisableConsoleMessages: false
 
 # Disables the colour of the text in the console messages.
 DisableConsoleColour: false
-
-# This allows the scoreboard to be any of the same strings and colours.
-# Skore will handle similarities and colour clones.
-# If this is disabled, it adds 1-2 extra characters, but revolks safety checks.
-# If a line is identical to another, the line errors and becomes nothing, this is Spigot/Minecraft.
-# Keeping this option true prevents this from happening.
-Safety: true

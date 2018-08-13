@@ -1,6 +1,6 @@
-name: Skore
+name: ScoreboardTags
 author: LimeGlass
-description: A Skript addon dedicated to perfecting scoreboards.
+description: A Skript addon dedicated to scoreboard tags.
 version: 1.0.0
-main: me.limeglass.skore.Skore
-depend: [Skript, TitleManager]
+main: me.limeglass.scoreboardtags.ScoreboardTags
+depend: [Skript]

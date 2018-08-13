@@ -3,7 +3,7 @@ apply plugin: 'java-library'
 apply plugin: 'eclipse'
 
 
-group = 'me.limeglass.skore'
+group = 'me.limeglass.scoreboardtags'
 version = '1.0.0'
 
 sourceCompatibility = 1.8
@@ -32,11 +32,6 @@ repositories {
     maven {
         url "https://oss.sonatype.org/content/repositories/snapshots"
     }
-    
-    //TitleManager because i'm lazy
-    maven {
-        url "http://repo.puha.io/repo/"
-    }
 }
 
 dependencies {
@@ -51,8 +46,6 @@ dependencies {
     implementation (group: 'ch.njol', name: 'skript', version: '2.2-dev35b') {
         transitive = false
 	}
-	
-	implementation (group: 'io.puharesource.mc', name: 'TitleManager', version: '2.0.0')
 }
 
 processResources {
